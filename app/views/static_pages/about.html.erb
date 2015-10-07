@@ -1,2 +1,13 @@
-<h1>StaticPages#about</h1>
-<p>Find me in app/views/static_pages/about.html.erb</p>
+<% provide(:title, "About") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | Ruby on Rails Tutorial Sample App</title>
+  </head>
+  <body>
+    <h1>About</h1>
+    <p>
+       The fist project created by Nguyen Hoang Nam at Framgia VietNam
+    </p>
+  </body>
+</html>
