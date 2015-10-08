@@ -22,6 +22,10 @@ module SessionsHelper
     end
   end
 	
+   def current_entry
+    @current_entry ||= Entry.find_by(id: params[:id])
+  end
+
 	# Forgets a persistent session.
   def forget(user)
     user.forget

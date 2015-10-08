@@ -19,10 +19,33 @@ class EntriesController < ApplicationController
 
   end
 
+  def show
+    @entry = current_entry
+    if @entry.nil?
+      flash[:warning] = "Entry does not exist."
+      redirect_to root_url
+    end
+    # @comments = @entry.comments.all
+  end
+
+  def edit
+    @entry = current_user.entries.find_by(id: params[:id])
+  end
+
+  def update
+    @entry = current_user.entries.find_by(id: params[:id])
+    if @entry.update_attributes(entry_params)
+      flash[:success] = "Entry updated."
+      redirect_to @entry
+    else
+      render 'edit'
+    end
+  end
+
   private
 
     def entry_params
-      params.require(:entry).permit(:title, :content)
+      params.require(:entry).permit(:title, :content, :comment)
     end
     def correct_user
        @entry = current_user.entry.find_by(id: params[:id])
