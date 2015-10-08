@@ -19,7 +19,7 @@
           <%= current_entry.content %>
         </div>
       </div>
-      <% if current_user?(current_entry.user) %>
+      <% if current_entry.user.following?(current_user) || current_user == current_entry.user %>
         <%= render 'comments/comment_form' %>
       <% end %> 
       <p> &nbsp </p>
