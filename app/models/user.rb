@@ -77,6 +77,7 @@ class User < ActiveRecord::Base
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
   end
+  
     # Activates an account.
   def activate
     update_attribute(:activated,    true)
