@@ -1,9 +1,9 @@
-<li class="comments">
-  <% @entry.comment.each do |comment| %>
+<div>
+   <% @entry.comment.each do |comment| %>
     <div class="row">
       <div class="col-md-12">
-        <%= link_to gravatar_for(comment.entry.user, size: 50), comment.entry.user %>
-        <span class="user text-info"><%= link_to comment.entry.user.name, comment.entry.user %>: </span>
+        <%= link_to gravatar_for(comment.user, size: 50), comment.user %>
+        <span class="user text-info"><%= link_to comment.user.name, comment.user %>: </span>
         <span class="timestamp">
           <%= time_ago_in_words(comment.created_at) %> ago.
         </span><br />
@@ -13,4 +13,6 @@
       </div>
     </div><br>
   <% end %>
-</li>
+</div>
+ 
+
