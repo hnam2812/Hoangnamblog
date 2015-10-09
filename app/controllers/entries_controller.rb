@@ -21,6 +21,7 @@ class EntriesController < ApplicationController
 
   def show
     @entry = current_entry
+    @comment = Comment.new
     if @entry.nil?
       flash[:warning] = "Entry does not exist."
       redirect_to root_url
@@ -33,7 +34,7 @@ class EntriesController < ApplicationController
   end
 
   def update
-    @entry = current_user.entries.find_by(id: params[:id])
+    @entry = current_user.entry.find_by(id: params[:id])
     if @entry.update_attributes(entry_params)
       flash[:success] = "Entry updated."
       redirect_to @entry

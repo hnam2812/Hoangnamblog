@@ -3,7 +3,7 @@
   <span class="user"><%= link_to entry.user.name, entry.user %></span>
   <span class="title"> <%= entry.title%> </span>
   <span class="timestamp">
-    Posted at <%=entry.created_at%>  .
+    Posted at <%=entry.created_at%>  
      <% if current_user?(entry.user) %>
       <%= link_to "Delete", entry, method: :delete,
                                        data: { confirm: "Are you sure?" } %>
