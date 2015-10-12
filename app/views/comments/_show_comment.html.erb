@@ -7,7 +7,8 @@
         <span class="timestamp">
           <%= time_ago_in_words(comment.created_at) %> ago.
         </span><br />
-         <div>
+        <% if current_user == comment.user %>
+          <div>
    <ul class="nav navbar-nav navbar-right">
     <div class="dropdown">
       <a href="#" data-toggle="dropdown" class="glyphicon glyphicon-chevron-down pull-right"  >
@@ -17,10 +18,11 @@
         <li><%= link_to "Delete", comment, method: :delete,
                                        data: { confirm: "Are you sure?" } %></li>
       </ul>
-
     </div>
     </ul>
       </div>
+        <% end %>
+         
         <div class="comment-content">
           <%= comment.content %>
           

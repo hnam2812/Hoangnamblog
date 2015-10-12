@@ -11,7 +11,8 @@
       </div>
 
       <div class="panel-body">
-      <div>
+      <% if current_user == @entry.user %>
+        <div>
    <ul class="nav navbar-nav navbar-right">
     <div class="dropdown">
       <a href="#" data-toggle="dropdown" class="glyphicon glyphicon-chevron-down pull-right"  >
@@ -24,7 +25,9 @@
 
     </div>
     </ul>
-</div>
+      </div>
+      <% end %>
+      
         <div id="clear-content">
           <%= simple_format(@entry.content) %>
         </div>
