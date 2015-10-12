@@ -12,7 +12,13 @@ class CommentsController < ApplicationController
       redirect_to @entry
     end
 	end
+ 
 
+  def update
+  end
+
+  def destroy
+  end
   private
 
     def comment_params

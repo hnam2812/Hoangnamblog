@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :entries,only: [:create, :destroy,:show]
+  resources :entries
   resources :comments
   resources :relationships,only: [:create, :destroy]
   resources :account_activations, only: [:edit]

@@ -30,7 +30,7 @@ class EntriesController < ApplicationController
   end
 
   def edit
-    @entry = current_user.entries.find_by(id: params[:id])
+    @entry = current_user.entry.find_by(id: params[:id])
   end
 
   def update

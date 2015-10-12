@@ -9,6 +9,10 @@
         </span><br />
         <div class="comment-content">
           <%= comment.content %>
+          <p> &nbsp </p>
+          <% if current_user?(current_entry.user) %>
+            <%= link_to "Edit",  edit_comment_path %>
+          <% end %>
         </div>
       </div>
     </div><br>

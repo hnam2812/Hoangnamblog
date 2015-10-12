@@ -18,6 +18,13 @@
         <div id="clear-content">
           <%= current_entry.content %>
         </div>
+        <div>
+          <% if current_user == current_entry.user %>
+            <%= link_to "Edit", edit_entry_path(current_entry)  %> | 
+            <%= link_to "Delete", current_entry, method: :delete,
+                                       data: { confirm: "Are you sure?" } %>
+          <% end %>
+        </div>
       </div>
       <% if current_entry.user.following?(current_user) || current_user == current_entry.user %>
         <%= render 'comments/comment_form' %>

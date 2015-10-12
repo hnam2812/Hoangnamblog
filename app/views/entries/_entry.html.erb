@@ -6,7 +6,8 @@
     Posted at <%=entry.created_at%>  
      <% if current_user?(entry.user) %>
       <%= link_to "Delete", entry, method: :delete,
-                                       data: { confirm: "Are you sure?" } %>
+                                       data: { confirm: "Are you sure?" } %> | 
+     <%= link_to "Edit",edit_entry_path(entry)  %>
     <% end %>
   </span>
   <span>
