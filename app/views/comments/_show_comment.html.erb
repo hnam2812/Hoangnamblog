@@ -1,35 +1,35 @@
 <div>
-   <% @entry.comment.each do |comment| %>
-    <div class="row">
-      <div class="col-md-12">
-        <%= link_to gravatar_for(comment.user, size: 50), comment.user %>
-        <span class="user text-info"><%= link_to comment.user.name, comment.user %>: </span>
-        <span class="timestamp">
-          <%= time_ago_in_words(comment.created_at) %> ago.
-        </span><br />
-        <% if current_user == comment.user %>
-          <div>
-   <ul class="nav navbar-nav navbar-right">
-    <div class="dropdown">
-      <a href="#" data-toggle="dropdown" class="glyphicon glyphicon-chevron-down pull-right"  >
-      </a>
-      <ul class="dropdown-menu dropdown-menu2 dropdown-menu-entry " >
-        <li><%= link_to "Edit", edit_comment_path(comment) %></li>
-        <li><%= link_to "Delete", comment, method: :delete,
-                                       data: { confirm: "Are you sure?" } %></li>
-      </ul>
-    </div>
-    </ul>
-      </div>
-        <% end %>
-         
-        <div class="comment-content">
-          <%= comment.content %>
-          
-        </div>
-      </div>
-    </div><br>
-  <% end %>
+ <% @entry.comment.each do |comment| %>
+ <div class="row">
+  <div class="col-md-12">
+    <%= link_to gravatar_for(comment.user, size: 50), comment.user %>
+    <span class="user text-info"><%= link_to comment.user.name, comment.user %>: </span>
+    <span class="timestamp">
+      <%= time_ago_in_words(comment.created_at) %> ago.
+    </span><br />
+    <% if current_user == comment.user %>
+    <div>
+     <ul class="nav navbar-nav navbar-right">
+      <div class="dropdown">
+        <a href="#" data-toggle="dropdown" class="glyphicon glyphicon-chevron-down pull-right"  >
+        </a>
+        <ul class="dropdown-menu dropdown-menu2 dropdown-menu-entry " >
+          <li><%= link_to "Edit", edit_comment_path(comment) %></li>
+          <li><%= link_to "Delete", comment, method: :delete,
+           data: { confirm: "Are you sure?" } %></li>
+         </ul>
+       </div>
+     </ul>
+   </div>
+   <% end %>
+   
+   <div class="comment-content">
+    <%= comment.content %>
+    
+  </div>
 </div>
- 
+</div><br>
+<% end %>
+</div>
+
 

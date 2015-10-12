@@ -11,31 +11,30 @@
       </div>
 
       <div class="panel-body">
-      <% if current_user == @entry.user %>
+        <% if current_user == @entry.user %>
         <div>
-   <ul class="nav navbar-nav navbar-right">
-    <div class="dropdown">
-      <a href="#" data-toggle="dropdown" class="glyphicon glyphicon-chevron-down pull-right"  >
-      </a>
-      <ul class="dropdown-menu dropdown-menu2 dropdown-menu-entry " >
-        <li><%= link_to "Edit", edit_entry_path(@entry) %></li>
-        <li><%= link_to "Delete", @entry, method: :delete,
-                                       data: { confirm: "Are you sure?" } %></li>
-      </ul>
-
-    </div>
-    </ul>
+         <ul class="nav navbar-nav navbar-right">
+          <div class="dropdown">
+            <a href="#" data-toggle="dropdown" class="glyphicon glyphicon-chevron-down pull-right"  >
+            </a>
+            <ul class="dropdown-menu dropdown-menu2 dropdown-menu-entry " >
+              <li><%= link_to "Edit", edit_entry_path(@entry) %></li>
+              <li><%= link_to "Delete", @entry, method: :delete,
+               data: { confirm: "Are you sure?" } %></li>
+             </ul>
+           </div>
+         </ul>
+       </div>
+       <% end %>
+       
+       <div id="clear-content">
+        <%= simple_format(@entry.content) %>
       </div>
-      <% end %>
+      <% if current_user?(@entry.user) %>
       
-        <div id="clear-content">
-          <%= simple_format(@entry.content) %>
-        </div>
-        <% if current_user?(@entry.user) %>
-   
-  <% end %> 
+      <% end %> 
       <% if @entry.user.following?(current_user) || current_user == @entry.user %>
-        <%= render 'comments/comment_form' %>
+      <%= render 'comments/comment_form' %>
       <% end %> 
       <p> &nbsp </p>
       <%= render 'comments/show_comment' %>
