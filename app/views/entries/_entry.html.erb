@@ -4,11 +4,6 @@
   <span class="title"> <%= entry.title%> </span>
   <span class="timestamp">
     Posted at <%=entry.created_at%>  
-     <% if current_user?(entry.user) %>
-      <%= link_to "Delete", entry, method: :delete,
-                                       data: { confirm: "Are you sure?" } %> | 
-     <%= link_to "Edit",edit_entry_path(entry)  %>
-    <% end %>
   </span>
   <span>
   	<%= link_to "See more...", entry %><hr>

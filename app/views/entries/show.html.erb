@@ -1,28 +1,37 @@
-<% provide(:title, current_entry.title) %>
-
+<% provide(:title, @entry.title) %>
 <div class="row" style="margin-top: 20px;">
   <aside class="col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h4 class="title" align="center"><%= current_entry.title %></h4>
+        <h4 class="title" align="center"><%= @entry.title %></h4>
         <p align="center">
-          Posted <%= time_ago_in_words(current_entry.created_at) %> ago by <%= link_to current_entry.user.name, current_entry.user %>
+          Posted <%= time_ago_in_words(@entry.created_at) %> ago by <%= link_to @entry.user.name, @entry.user %>
         </p>
+
       </div>
 
       <div class="panel-body">
+      <div>
+   <ul class="nav navbar-nav navbar-right">
+    <div class="dropdown">
+      <a href="#" data-toggle="dropdown" class="glyphicon glyphicon-chevron-down pull-right"  >
+      </a>
+      <ul class="dropdown-menu dropdown-menu2 dropdown-menu-entry " >
+        <li><%= link_to "Edit", edit_entry_path(@entry) %></li>
+        <li><%= link_to "Delete", @entry, method: :delete,
+                                       data: { confirm: "Are you sure?" } %></li>
+      </ul>
+
+    </div>
+    </ul>
+</div>
         <div id="clear-content">
-          <%= simple_format(current_entry.content) %>
+          <%= simple_format(@entry.content) %>
         </div>
-        <div>
-          <% if current_user == current_entry.user %>
-            <%= link_to "Edit", edit_entry_path(current_entry)  %> | 
-            <%= link_to "Delete", current_entry, method: :delete,
-                                       data: { confirm: "Are you sure?" } %>
-          <% end %>
-        </div>
-      </div>
-      <% if current_entry.user.following?(current_user) || current_user == current_entry.user %>
+        <% if current_user?(@entry.user) %>
+   
+  <% end %> 
+      <% if @entry.user.following?(current_user) || current_user == @entry.user %>
         <%= render 'comments/comment_form' %>
       <% end %> 
       <p> &nbsp </p>

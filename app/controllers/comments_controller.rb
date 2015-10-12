@@ -14,11 +14,16 @@ class CommentsController < ApplicationController
     end
 	end
  
+  def edit
+  end
 
   def update
   end
 
   def destroy
+     @comment.destroy
+    flash[:success] = "Comment deleted!"
+    redirect_to request.referrer || root_url #redirect to url before action, if nil redirect to root url
   end
   private
 
