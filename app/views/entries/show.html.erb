@@ -16,7 +16,7 @@
 
       <div class="panel-body">
         <div id="clear-content">
-          <%= current_entry.content %>
+          <%= simple_format(current_entry.content) %>
         </div>
         <div>
           <% if current_user == current_entry.user %>
