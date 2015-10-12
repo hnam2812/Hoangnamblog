@@ -6,10 +6,11 @@ class CommentsController < ApplicationController
     @entry = @comment.entry
 		 if @comment.save
       flash[:success] = "Your comment posted successful"
-      redirect_to root_url
-    else
-      flash[:danger] = "Comment must less than 150 characters!"
       redirect_to @entry
+    else
+      flash[:danger] = "Comment must not empty and less than 150 characters!"
+      redirect_to @entry
+
     end
 	end
  
