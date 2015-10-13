@@ -1,5 +1,5 @@
-<div class="center jumbotron">
 <% if logged_in? %>
+<div class="center jumbotron">
   <div class="row">
     <aside class="col-md-4">
       <section class="user_info">
@@ -8,26 +8,25 @@
       <section class="stats">
         <%= render 'shared/stats' %>
       </section>
-
       <section class="entry_form">
         <%= render 'entries/entry_form' %>
       </section>
     </aside>
 
     <div class="col-md-8">
-      <h3><%= current_user.name %> new feed</h3>
+      <h3>News Feed</h3>
       <%= render 'shared/show_new_feeds' %>
     </div>
   </div>
   </div>
+
 <% else %>
-
-  <h1>Welcome to the Hoang Nam First project</h1>
-
+<div class="center jumbotron">
+  <h1>Welcome</h1>
   <h2>
-    This is Nam first project in Framgia!
+    Please login to post entry and follow my account.
+    <br> <br>
+    Or <%= link_to "Sign up", signup_path %> to create account for free!
   </h2>
-
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-</div>
+  </div>
 <%end%>

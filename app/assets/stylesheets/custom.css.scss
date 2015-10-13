@@ -14,9 +14,17 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
+
 body {
   padding-top: 60px;
+  background: image-url("Background.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
 }
+
 
 section {
   overflow: auto;
@@ -45,7 +53,7 @@ h1 {
   text-align: center;
 }
 h2 {
-  font-size: 1.2em;
+  font-size: 2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
@@ -64,7 +72,6 @@ p {
   margin-right: 10px;
   font-size: 1.7em;
   color: white;
-  text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
@@ -80,11 +87,11 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
-  color: $gray-light;
+  color: #ecf0f1;
   a {
-    color: $gray;
+    color: #ecf0f1;
     &:hover {
-      color: $gray-darker;
+      color: #a1dbe9;
     }
   }
   small {
@@ -280,7 +287,7 @@ span.picture {
 
 
 .navbar-default {
-  background-color: #3c98e7;
+  background-color: #2794af;
   border-color: #b5dadc;
 }
 
@@ -288,3 +295,10 @@ span.picture {
   color: #f1efec;
 }
 
+.jumbotron {
+  background: image-url("Background-content.jpg") no-repeat center center fixed;
+  text-align: left;
+}
+.background {
+  background: image-url("Background-content.jpg") no-repeat center center fixed;
+}
