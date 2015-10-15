@@ -1,10 +1,11 @@
 <% provide(:title, @title) %>
+<div class="jumbotron">
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
       <%= gravatar_for @user %>
       <h1><%= @user.name %></h1>
-      <span><%= link_to "view my profile", @user %></span>
+      <span><%= link_to "Profile", @user %></span>
       <span><b>Entry:</b> <%= @user.entry.count %></span>
     </section>
     <section class="stats">
@@ -27,4 +28,5 @@
       <%= will_paginate %>
     <% end %>
   </div>
+</div>
 </div>
